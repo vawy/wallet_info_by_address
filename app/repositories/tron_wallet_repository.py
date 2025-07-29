@@ -8,4 +8,4 @@ class TronWalletRepository(DefaultRepository):
         super().__init__(session=session, model=TronWallet)
 
     async def get_wallet(self, address: TronWalletAddressField):
-        pass
+        return await self.tron_service.get_wallet_data(address=address)
