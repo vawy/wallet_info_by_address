@@ -9,7 +9,7 @@ router = APIRouter(tags=["tron_wallet"], prefix="/tron_wallet")
 
 
 @router.post(
-    path="/wallet_by_address/",
+    path="/wallet_by_address",
     status_code=status.HTTP_200_OK,
     summary="Get wallet info by address",
     description="Get wallet info by address",
@@ -23,7 +23,7 @@ async def get_wallet_info(request: Request, body: TronWalletBase) -> TronWalletR
 
 
 @router.get(
-    path="/wallets/",
+    path="/wallets",
     status_code=status.HTTP_200_OK,
     summary="Get wallets from db",
     description="Get wallets from db",
