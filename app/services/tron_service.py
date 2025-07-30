@@ -1,5 +1,5 @@
 from tronpy import Tron
-from tronpy.exceptions import ValidationError
+from tronpy.exceptions import ValidationError, BadAddress, AddressNotFound
 
 from app.schemas.tron_wallet_schema import TronWalletCreate
 from app.utils.fields_constraints import TronWalletAddressField
@@ -20,7 +20,7 @@ class TronService:
                 is_success=True,
                 error_message=None
             )
-        except ValidationError as e:
+        except Exception as e:
             return TronWalletCreate(
                 address=address,
                 trx_balance=0,

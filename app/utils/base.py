@@ -9,7 +9,7 @@ from app.settings import settings
 
 def bind_routes(app: FastAPI, routes: list[APIRouter]):
     for route in routes:
-        app.include_router(router=route, prefix="/api/wallet_info_by_address")
+        app.include_router(router=route, prefix="/api/wallet_info")
 
 
 @asynccontextmanager

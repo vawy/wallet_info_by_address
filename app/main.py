@@ -15,7 +15,7 @@ def make_app(app_settings: Settings) -> FastAPI:
     fastapi_app = FastAPI(
         title="Tron wallet",
         lifespan=lifespan,
-        docs_url="/api/wallet_info_by_address/swagger"
+        docs_url="/api/wallet_info/swagger"
     )
 
     bind_routes(app=fastapi_app, routes=routes)
