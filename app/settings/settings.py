@@ -41,3 +41,7 @@ class Settings(BaseSettings):
             "{user}:{password}@{host}:{port}"
             "/{database}".format(**self.db_settings)
         )
+
+    @property
+    def sync_test_database_url(self):
+        return "postgresql+psycopg2://postgres:postgres@localhost:5432/test_temp_db"

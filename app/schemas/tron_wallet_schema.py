@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
 from app.utils.fields_constraints import TronWalletAddressField
@@ -19,13 +19,12 @@ class TronWalletCreate(TronWalletBase):
 class TronWalletResponse(TronWalletBase):
     trx_balance: float
     bandwidth: int
-    bandwidth_limit: int
+    bandwidth_limit: int | None
     energy: int
-    energy_limit: int
+    energy_limit: int | None
     is_success: bool
     error_message: str | None
-    created_at: datetime
-    updated_at: datetime
+    created_at: datetime | None
+    updated_at: datetime | None
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

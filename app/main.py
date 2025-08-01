@@ -25,4 +25,5 @@ def make_app(app_settings: Settings) -> FastAPI:
 
 
 if __name__ == "__main__":
-    uvicorn.run(app=make_app(app_settings=settings))
+    app = make_app(app_settings=settings)
+    uvicorn.run(app=app)

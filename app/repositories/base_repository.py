@@ -1,6 +1,6 @@
 import logging
 
-from fastapi_pagination.ext.sqlalchemy import paginate
+from fastapi_pagination.ext.sqlalchemy import apaginate
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -16,7 +16,7 @@ class BaseRepository:
     async def find_all(self, params=None):
         query = select(self.model)
 
-        return await paginate(self.session, query, params)
+        return await apaginate(self.session, query, params)
 
     async def create_one(self, body: dict | BaseModel):
         if isinstance(body, BaseModel):

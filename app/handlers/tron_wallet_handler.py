@@ -29,7 +29,7 @@ async def get_wallet_info(request: Request, body: TronWalletBase) -> TronWalletR
     description="Get wallets from db",
     response_model=Page[TronWalletResponse]
 )
-async def get_wallet_info(request: Request) -> Page[TronWalletResponse]:
+async def get_wallets_info_from_db(request: Request) -> Page[TronWalletResponse]:
     async with request.app.state.db.get_master_session() as session:
         tron_wallet_rep = TronWalletRepository(session=session)
         return await tron_wallet_rep.find_all()

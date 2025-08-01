@@ -1,5 +1,4 @@
 from tronpy import Tron
-from tronpy.exceptions import ValidationError, BadAddress, AddressNotFound
 
 from app.schemas.tron_wallet_schema import TronWalletCreate
 from app.utils.fields_constraints import TronWalletAddressField
@@ -12,9 +11,11 @@ class TronService:
         try:
             client = Tron()
             account = client.get_account(addr=address)
+            print('--------------------------------------------')
+            print(account)
             return TronWalletCreate(
                 address=address,
-                trx_balance=account['balance'] / 100_000_000,
+                trx_balance=account['balance'] / 1_000_000,
                 bandwidth=account.get('free_net_usage', 0),
                 energy=account.get("energy_usage", 0),
                 is_success=True,
